@@ -16,7 +16,7 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::orderBy('id','DESC')->get();
-        return $doctors;
+        return response()->json($doctors, 200);
     }
 
     /**
@@ -29,7 +29,7 @@ class DoctorController extends Controller
     {
         $doctor = new Doctor();
         $doctor ->create($request->all());
-        return "SUCCESS !";
+        return response()->json("Shifokor qo'shildi", 200);
     }
 
     /**
@@ -55,7 +55,7 @@ class DoctorController extends Controller
     {
         $doctor = Doctor::find($id);
         $doctor->update($request->all());
-        return "SUCCESS !";
+        return response()->json("Shifokor tahrirlandi", 200);
     }
 
     /**
@@ -67,6 +67,6 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         Doctor::find($id)->delete();
-        return "SUCCESS !";
+        return response()->json("Shifokor o'chirildi", 200);
     }
 }

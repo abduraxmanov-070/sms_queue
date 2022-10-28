@@ -118,6 +118,6 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         Customer::find($id)->delete();
-        return 'SUCCESS !';
+        return response()->json(['message' => "o'chirildi"], 200);
     }
 }
